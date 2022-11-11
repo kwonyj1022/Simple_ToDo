@@ -4,7 +4,7 @@ const todoList = document.querySelector("#todo-list");
 
 const TODOS_KEY = "todos";
 
-const todos = [];
+let todos = [];
 
 function saveTodos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
@@ -42,4 +42,5 @@ const savedTodos = localStorage.getItem(TODOS_KEY);
 if (savedTodos) {
     const parsedTodos = JSON.parse(savedTodos);
     parsedTodos.forEach(printTodo);
+    todos = parsedTodos;
 }
