@@ -2,6 +2,12 @@ const todoForm = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#todo-form input");
 const todoList = document.querySelector("#todo-list");
 
+const todos = [];
+
+function saveTodos() {
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+
 function onDeleteTodoClick(event) {
     const li = event.target.parentElement;
     li.remove();
@@ -22,6 +28,8 @@ function printTodo(newTodo) {
 function onTodoSubmit(event) {
     event.preventDefault();
     const newTodo = todoInput.value;
+    todos.push(newTodo);
+    saveTodos();
     todoInput.value = "";
     printTodo(newTodo);
 }
