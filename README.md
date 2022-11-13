@@ -18,3 +18,5 @@
     * Local Storage는 String 형태로만 저장 가능함 <br>
     ∴ 배열에 저장한 후 JSON의 stringify() 메서드로 String 타입으로 바꿔서 저장
     * 저장된 To Do 리스트를 불러올 때는 Local Storage에 저장된 String을 JSON의 parse() 메서드를 활용해 다시 배열 바꾼 후 각 요소를 printTodo 함수의 인자로 전달
+    * Local Storage에 할 일과 id값으로 이루어진 object를 String 형태로 저장 (id는 Date.now() 사용)
+    * filter() 메서드 => 삭제 버튼이 있는 li 노드의 id와 일치하는 id를 가진 Local Storage의 할 일 Object 삭제
