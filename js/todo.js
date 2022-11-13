@@ -15,10 +15,11 @@ function onDeleteTodoClick(event) {
     li.remove();
 }
 
-function printTodo(newTodo) {
+function printTodo(newTodoObj) {
     const li = document.createElement("li");
+    li.id = newTodoObj.id;
     const span = document.createElement("span");
-    span.innerText = newTodo;
+    span.innerText = newTodoObj.text;
     const button = document.createElement("button");
     button.innerText = "❌";
     button.addEventListener("click", onDeleteTodoClick);
@@ -29,11 +30,14 @@ function printTodo(newTodo) {
 
 function onTodoSubmit(event) {
     event.preventDefault();
-    const newTodo = todoInput.value;
-    todos.push(newTodo);
+    const newTodoObj = {
+        text: todoInput.value,
+        id: Date.now()
+    };
+    todos.push(newTodoObj);
     saveTodos();
     todoInput.value = "";
-    printTodo(newTodo);
+    printTodo(newTodoObj);
 }
 
 todoForm.addEventListener("submit", onTodoSubmit);
