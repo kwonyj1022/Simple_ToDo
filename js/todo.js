@@ -12,6 +12,8 @@ function saveTodos() {
 
 function onDeleteTodoClick(event) {
     const li = event.target.parentElement;
+    todos = todos.filter((todo) => todo.id !== parseInt(li.id));
+    saveTodos();
     li.remove();
 }
 
